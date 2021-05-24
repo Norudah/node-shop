@@ -14,17 +14,17 @@ module.exports = class Product {
       let data = [];
       if (!error) {
         data = JSON.parse(fileData);
+
+        // Add new data
+        data.push(this.title);
+        data = JSON.stringify(data);
+
+        // Add new data
+        fs.writeFile(p, data, (error) => {
+          if (error) return data;
+          console.log("Write file successful");
+        });
       }
-
-      // Add new data
-      data.push(this.title);
-      data = JSON.stringify(data);
-
-      // Add new data
-      fs.writeFile(p, data, (error) => {
-        if (error) return data;
-        console.log("write file successful");
-      });
     });
   }
 
@@ -35,7 +35,10 @@ module.exports = class Product {
     });
   }
 
-  static clearAllProducts() {
-    products.length = 0;
+  static clearAll() {
+    fs.writeFile(p, "[]", (error) => {
+      if (error) console.log("Error : " + error);
+      else console.log("File content deleted.");
+    });
   }
 };

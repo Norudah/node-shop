@@ -15,3 +15,8 @@ exports.postAddNewProduct = (req, res, next) => {
   product.save();
   res.redirect("/products");
 };
+
+exports.clear = (req, res, next) => {
+  Product.clearAll();
+  res.redirect("/products");
+};
