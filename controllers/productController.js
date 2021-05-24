@@ -1,7 +1,8 @@
 const Product = require("../models/productModel");
 
 exports.list = (req, res, next) => {
-  res.render("products/list", { products: Product.getProducts });
+  products = Product.getProducts();
+  res.render("products/list", { products: products });
 };
 
 exports.addNewProduct = (req, res, next) => {

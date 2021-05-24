@@ -6,10 +6,13 @@ module.exports = class Product {
   }
 
   save() {
+    console.log("before :" + products);
     products.push(this.title);
+    console.log("after :" + products);
   }
 
   static getProducts() {
+    console.log("getProducts : " + products);
     return products;
   }
 
