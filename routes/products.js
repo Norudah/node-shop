@@ -13,4 +13,8 @@ router.post("/new", productController.postAddNewProduct);
 
 router.get("/clear", productController.clear);
 
+router.get("/edit", productController.edit);
+
+router.get("/detail", productController.detail);
+
 module.exports = router;

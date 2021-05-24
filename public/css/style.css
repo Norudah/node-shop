@@ -1,3 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+
+/* Resets */
+
+body,
+html {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+div,
+img,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style */
+
 body {
   background: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+}
+
+main {
+  padding: 0 1rem;
+}
+
+h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+/* Perso */
+
+.topBarMenu {
+  display: flex;
+  background: rgb(72, 170, 216);
+  padding: 1rem 0;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.topBarMenu__link {
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0 0.5rem;
+  padding: 0.1rem 1rem;
+  border-bottom: solid transparent 2px;
+  transition: all 0.3s ease;
+}
+
+.topBarMenu__link:hover {
+  border-color: white;
+}
+
+.topBarMenu__link--active {
+  color: #b2ff9f;
+}
+
+.productsList {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.card {
+  display: flex;
+  flex-flow: column;
+  background: white;
+  width: 250px;
+  border-radius: 15px;
+  padding: 0.2rem;
+  box-shadow: 6px 5px 7px 0px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s ease;
+  margin: 0.5rem;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card__img {
+  object-fit: cover;
+}
+
+.productForm {
+  display: flex;
+  flex-flow: column;
 }

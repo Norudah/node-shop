@@ -1,21 +1,35 @@
 <%- include("../partials/head.ejs") %> 
 
-<h1>PRODUITS</h1>
-
-<nav style="display: flex; flex-flow: column;">  
-    <a href="/products/new">Ajouter un nouveau produit</a>
-    <a href="/products/clear">Supprimer tous les produits</a>
-    <a href="/">Retour accueil</a>
+<nav class="topBarMenu">  
+    <a class="topBarMenu__link" href="/products">Produits</a>
+    <a class="topBarMenu__link" href="/products/new">Ajouter</a>
+    <a class="topBarMenu__link" href="/products/clear">Supprimer</a>
+    <a class="topBarMenu__link" href="/">Retour</a>
 </nav>
 
-<% if (products.length > 0) { %> 
-    <ul>
-        <% for(let i = 0; i < products.length; i++) { %> 
-                <li><%= products[i] %> </li>
-        <% } %> 
-    </ul>
-<% } else { %>
-    <h3>Aucun produits enregistrés</h2>
-<% } %>  
+<main>
 
+    <h1>PRODUITS</h1>
+
+    <% if (products.length > 0) { %> 
+        <div class="productsList">
+            <% for(let i = 0; i < products.length; i++) { %> 
+                    <div class="card">
+                        <img class="card__img" src="<%= products[i].url %>" alt="image d'un livre">
+                        <h2 class="card__title"><%= products[i].title %></h2>
+                        <h3 class="card__price"><%= products[i].price %></h3>
+                        <p>Description</p>
+                        <p class="card_Description"><%= products[i].description %></p>
+                        <div>
+                            <a href="/products/edit">EDIT</a>
+                            <a href="/products/detail">DETAIL</a>
+                        </div>
+                    </div>
+            <% } %> 
+        </div>
+    <% } else { %>
+        <h3>Aucun produits enregistrés</h2>
+    <% } %>  
+
+</main>
 <%- include("../partials/footer.ejs") %> 

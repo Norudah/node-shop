@@ -4,8 +4,11 @@ const path = require("path");
 const p = path.join(__dirname, "../", "data/", "data.json");
 
 module.exports = class Product {
-  constructor(title) {
+  constructor(title, description, price, url) {
     this.title = title;
+    this.description = description;
+    this.price = price;
+    this.url = url;
   }
 
   save() {
@@ -16,7 +19,7 @@ module.exports = class Product {
         data = JSON.parse(fileData);
 
         // Add new data
-        data.push(this.title);
+        data.push(this);
         data = JSON.stringify(data);
 
         // Add new data
@@ -24,6 +27,15 @@ module.exports = class Product {
           if (error) return data;
           console.log("Write file successful");
         });
+      }
+    });
+  }
+
+  static getProductById(id, callback) {
+    fs.readFile(p, (error, fileData) => {
+      if (!error) {
+        const product = JSON.parse(fileData)[id];
+        callback(product);
       }
     });
   }
