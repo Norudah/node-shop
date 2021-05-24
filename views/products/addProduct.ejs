@@ -1,0 +1,10 @@
+<%- include("../partials/head.ejs") %> 
+
+<h1>AJOUTER UN ARTICLE</h1>
+<form action="/products/new" method="POST">
+    <label for="newProduct">Nouveau produit :</label>
+    <input type="text" name="newProduct">
+    <button type="submit">AJOUTER</button>
+</form>
+
+<%- include("../partials/footer.ejs") %> 

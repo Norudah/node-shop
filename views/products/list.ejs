@@ -1,0 +1,20 @@
+<%- include("../partials/head.ejs") %> 
+
+<h1>PRODUITS</h1>
+
+<nav style="display: flex; flex-flow: column;">  
+    <a href="/products/new">Ajouter un nouveau produit</a>
+    <a href="/">Retour accueil</a>
+</nav>
+
+<% if (products.length > 0) { %> 
+    <ul>
+        <% for(let i = 0; i < products.length; i++) { %> 
+                <li><%= products[i] %> </li>
+        <% } %> 
+    </ul>
+<% } else { %>
+    <h3>Aucun produits enregistrés</h2>
+<% } %>  
+
+<%- include("../partials/footer.ejs") %> 
