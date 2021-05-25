@@ -35,6 +35,7 @@ module.exports = class Product {
     fs.readFile(p, (error, fileData) => {
       if (!error) {
         const product = JSON.parse(fileData)[id];
+        // console.log(typeof product === "undefined");
         callback(product);
       }
     });
@@ -51,6 +52,24 @@ module.exports = class Product {
     fs.writeFile(p, "[]", (error) => {
       if (error) console.log("Error : " + error);
       else console.log("File content deleted.");
+    });
+  }
+
+  //TODO make edit
+
+  static deleteById(id, callback) {
+    fs.readFile(p, (error, fileData) => {
+      if (!error) {
+        const data = JSON.parse(fileData);
+        console.log(data);
+        data.splice(id, 1);
+        console.log(data);
+
+        fs.writeFile(p, JSON.stringify(data), (error) => {
+          console.log("Product deleted.");
+          callback();
+        });
+      }
     });
   }
 };

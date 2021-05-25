@@ -27,13 +27,29 @@ exports.clear = (req, res, next) => {
 };
 
 exports.edit = (req, res, next) => {
-  Product.getProductById(0, (product) => {
+  const id = req.params.productId;
+  Product.getProductById(id, (product) => {
+    if (typeof product === "undefined") res.status(404).redirect("/404");
     res.render("products/edit", { product: product });
   });
 };
 
 exports.detail = (req, res, next) => {
-  Product.getProductById(0, (product) => {
+  const id = req.params.productId;
+  Product.getProductById(id, (product) => {
+    if (typeof product === "undefined") res.status(404).redirect("/404");
     res.render("products/detail", { product: product });
+  });
+};
+
+// TODO
+exports.postEdit = (req, res, next) => {
+  const id = req.params.productId;
+};
+
+exports.postDelete = (req, res, next) => {
+  const id = req.params.productId;
+  Product.deleteById(id, () => {
+    res.redirect("/products");
   });
 };

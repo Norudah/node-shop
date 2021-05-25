@@ -11,7 +11,7 @@
 
     <h1>EDITER PRODUITS</h1>
 
-    <form class="productForm" action="/products/new" method="POST">
+    <form class="productForm" action="/products/edit" method="POST">
         <label for="newProduct">modifier produit :</label>
         <input type="text" name="productName" placeholder="productName" value="<%= product.title %>">
         <input type="number" name="productPrice" placeholder="productPrice" value="<%= product.price %>" step="0.01">

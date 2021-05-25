@@ -21,8 +21,11 @@
                         <p>Description</p>
                         <p class="card_Description"><%= products[i].description %></p>
                         <div>
-                            <a href="/products/edit">EDIT</a>
-                            <a href="/products/detail">DETAIL</a>
+                            <a href="/products/edit/<%= i %>">EDIT</a>
+                            <a href="/products/detail/<%= i %>">DETAIL</a>
+                            <form action="/products/delete/<%= i %>" method="POST">
+                                <button type="submit">DELETE</button>
+                            </form>
                         </div>
                     </div>
             <% } %> 
