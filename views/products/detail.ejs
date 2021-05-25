@@ -1,0 +1,23 @@
+<%- include("../partials/head.ejs") %> 
+
+<nav class="topBarMenu">  
+    <a class="topBarMenu__link" href="/products">Produits</a>
+    <a class="topBarMenu__link" href="/products/new">Ajouter</a>
+    <a class="topBarMenu__link" href="/products/clear">Supprimer</a>
+    <a class="topBarMenu__link" href="/">Retour</a>
+</nav>
+
+<main>
+
+    <h1>DETAILS PRODUITS</h1>
+
+    <div class="card">
+        <img class="card__img" src="<%= product.url %>" alt="image d'un livre">
+        <h2 class="card__title"><%= product.title %></h2>
+        <h3 class="card__price"><%= product.price %></h3>
+        <p>Description</p>
+        <p class="card_Description"><%= product.description %></p>
+    </div>
+    
+</main>
+<%- include("../partials/footer.ejs") %> 

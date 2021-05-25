@@ -10,6 +10,8 @@ const app = express();
 // Enabling by default the req to receive data from post forms
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static("public"));
+
 // Using EJS tempalte engine et défine the root folder for the views
 app.set("view engine", "ejs");
 app.set("views", "views");
