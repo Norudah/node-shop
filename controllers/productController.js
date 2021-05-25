@@ -30,7 +30,21 @@ exports.edit = (req, res, next) => {
   const id = req.params.productId;
   Product.getProductById(id, (product) => {
     if (typeof product === "undefined") res.status(404).redirect("/404");
-    res.render("products/edit", { product: product });
+    res.render("products/edit", { product: product, id: id });
+  });
+};
+
+// TODO
+exports.postEdit = (req, res, next) => {
+  const id = req.params.productId;
+  const product = new Product(
+    req.body.productName,
+    req.body.productDescription,
+    req.body.productPrice,
+    req.body.productUrl
+  );
+  Product.editById(id, product, () => {
+    res.redirect("/products");
   });
 };
 
@@ -40,11 +54,6 @@ exports.detail = (req, res, next) => {
     if (typeof product === "undefined") res.status(404).redirect("/404");
     res.render("products/detail", { product: product });
   });
-};
-
-// TODO
-exports.postEdit = (req, res, next) => {
-  const id = req.params.productId;
 };
 
 exports.postDelete = (req, res, next) => {

@@ -11,13 +11,14 @@
 
     <h1>EDITER PRODUITS</h1>
 
-    <form class="productForm" action="/products/edit" method="POST">
+    <form class="productForm" action="/products/edit/<%= id %>" method="POST">
         <label for="newProduct">modifier produit :</label>
         <input type="text" name="productName" placeholder="productName" value="<%= product.title %>">
         <input type="number" name="productPrice" placeholder="productPrice" value="<%= product.price %>" step="0.01">
         <input type="text" name="productUrl" placeholder="productUrl" value="<%= product.url %>">
         <textarea name="productDescription" placeholder="productDescription"id="" cols="30" rows="10"><%= product.description %></textarea>
         <button type="submit">AJOUTER</button>
+       
     </form>
 
 </main>

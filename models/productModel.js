@@ -55,7 +55,20 @@ module.exports = class Product {
     });
   }
 
-  //TODO make edit
+  static editById(id, editedProduct, callback) {
+    fs.readFile(p, (error, dataFile) => {
+      if (!error) {
+        let data = JSON.parse(dataFile);
+        data[id] = editedProduct;
+        data = JSON.stringify(data);
+
+        fs.writeFile(p, data, (err) => {
+          console.log("Fichier édité");
+          callback();
+        });
+      }
+    });
+  }
 
   static deleteById(id, callback) {
     fs.readFile(p, (error, fileData) => {
